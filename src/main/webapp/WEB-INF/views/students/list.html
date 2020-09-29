@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Danh sach hoc vien</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Avatar</th>
+            <th>Edit</th>
+        </tr>
+        <div th:each="student : ${students}">
+            <tr>
+                <td th:text="${student.getName()}"></td>
+                <td th:text="${student.getAddress()}"></td>
+                <td><img th:src="@{'/i/'+ ${student.getImageID()}}" width="100"/></td>
+                <td><a th:href="@{'/students/edit/' + ${student.getId()}}">Edit</a> </td>
+            </tr>
+        </div>
+    </table>
+</body>
+</html>
